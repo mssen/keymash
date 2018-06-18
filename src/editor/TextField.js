@@ -1,12 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Editor } from 'slate-react';
 
-const Textarea = styled.textarea`
+const StyledEditor = styled(Editor)`
   height: 100vh;
+  border: 1px solid black;
 `;
 
-const TextField = ({ onChange }) => {
-  return <Textarea onChange={onChange} />;
-};
+const TextField = ({ value, onChange }) => (
+  <StyledEditor value={value} onChange={onChange} />
+);
 
 export default TextField;

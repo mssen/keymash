@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Value } from 'slate';
 
 import TextField from './editor/TextField';
 import Viewer from './viewer/Viewer';
+
+const initialValue = Value.fromJSON({
+  document: {
+    nodes: [
+      {
+        object: 'block',
+        type: 'paragraph',
+        nodes: [
+          {
+            object: 'text',
+            leaves: [
+              {
+                text: 'A line of text in a paragraph.'
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+});
 
 const Container = styled.div`
   display: grid;
@@ -10,22 +32,18 @@ const Container = styled.div`
 `;
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      value: ''
-    };
-  }
+  state = {
+    value: initialValue
+  };
 
-  onChange = (event) =>
-    this.setState({
-      value: event.target.value
-    });
+  onChange = ({ value }) => {
+    this.setState({ value });
+  };
 
   render() {
     return (
       <Container>
-        <TextField onChange={this.onChange} />
+        <TextField value={this.state.value} onChange={this.onChange} />
         <Viewer source={this.state.value} />
       </Container>
     );
