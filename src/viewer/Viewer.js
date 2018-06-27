@@ -1,17 +1,6 @@
 import React from 'react';
-import styled from 'styled-components';
-import ReactMarkdown from 'react-markdown';
+import { Editor } from 'slate-react';
 
-const Markdown = styled(ReactMarkdown)`
-  padding: 20px;
-
-  & > p {
-    color: #888;
-  }
-`;
-
-const Viewer = (props) => {
-  return <Markdown {...props} />;
-};
+const Viewer = ({ source }) => <Editor value={source} readOnly />;
 
 export default Viewer;
