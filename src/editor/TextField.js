@@ -8,6 +8,10 @@ const StyledEditor = styled(Editor)`
   border: 1px solid black;
 `;
 
+const Bold = styled.strong`
+  color: red;
+`;
+
 const isBoldHotKey = isHotkey('mod+b');
 
 const onKeyDown = (event, change) => {
@@ -22,7 +26,7 @@ const onKeyDown = (event, change) => {
 const renderMark = ({ mark, children }) => {
   switch (mark.type) {
     case 'bold':
-      return <strong>{children}</strong>;
+      return <Bold>{children}</Bold>;
     default:
       return children;
   }
