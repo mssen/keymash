@@ -22,9 +22,6 @@ const decorateNode = (node) => {
   const tokens = Prism.tokenize(node.text, Prism.languages.markdown);
   const decorations = [];
 
-  console.log('Texts', texts);
-  console.log('Tokens', tokens);
-
   let startText = texts.shift();
   let endText = startText;
   let startOffset = 0;
@@ -35,17 +32,18 @@ const decorateNode = (node) => {
     startText = endText;
     startOffset = endOffset;
 
-    const length = getLength(token);
-    const end = start + length;
+    // Excludes length from symbols (*, _, etc.)
+    const tokenLength = getLength(token);
+    const end = start + tokenLength;
 
     let available = startText.text.length - startOffset;
-    let remaining = length;
+    let remaining = tokenLength;
 
     endOffset = startOffset + remaining;
 
     while (available < remaining) {
       endText = texts.shift();
-      remaining = length - available;
+      remaining = tokenLength - available;
       available = endText.text.length;
       endOffset = remaining;
     }
@@ -65,7 +63,6 @@ const decorateNode = (node) => {
     start = end;
   }
 
-  console.log('Decorations', decorations);
   return decorations;
 };
 
