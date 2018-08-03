@@ -1,5 +1,8 @@
 import React from 'react';
 
+import List from './List';
+import Punctuation from './Punctuation';
+
 const renderMark = ({ mark, children, attributes }) => {
   switch (mark.type) {
     case 'bold':
@@ -14,39 +17,13 @@ const renderMark = ({ mark, children, attributes }) => {
       return <h1 {...attributes}>{children}</h1>;
     }
     case 'punctuation': {
-      return (
-        <span {...attributes} style={{ opacity: 0.2 }}>
-          {children}
-        </span>
-      );
+      return <Punctuation {...attributes}>{children}</Punctuation>;
     }
     case 'list': {
-      return (
-        <span
-          {...attributes}
-          style={{
-            paddingLeft: '10px',
-            lineHeight: '10px',
-            fontSize: '20px'
-          }}
-        >
-          {children}
-        </span>
-      );
+      return <List {...attributes}>{children}</List>;
     }
     case 'hr': {
-      return (
-        <span
-          {...attributes}
-          style={{
-            borderBottom: '2px solid #000',
-            display: 'block',
-            opacity: 0.2
-          }}
-        >
-          {children}
-        </span>
-      );
+      return <hr {...attributes} />;
     }
     default: {
       return children;
