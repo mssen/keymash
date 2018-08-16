@@ -13,6 +13,8 @@ const renderMark = ({ mark, children, attributes }) => {
       return <em {...attributes}>{children}</em>;
     case 'underlined':
       return <u {...attributes}>{children}</u>;
+    case 'strikethrough':
+      return <s {...attributes}>{children}</s>;
     case 'title': {
       return <h1 {...attributes}>{children}</h1>;
     }
