@@ -8,19 +8,42 @@ Prism.languages.insertBefore('markdown', 'prolog', {
     { pattern: /^(?: {4}|\t).+/m, alias: 'keyword' },
     { pattern: /``.+?``|`[^`\n]+`/, alias: 'keyword' }
   ],
-  title: [
-    {
-      pattern: /\w+.*(?:\r?\n|\r)(?:==+|--+)/,
-      alias: 'important',
-      inside: { punctuation: /==+$|--+$/ }
-    },
-    {
-      pattern: /(^\s*)#+.+/m,
-      lookbehind: !0,
-      alias: 'important',
-      inside: { punctuation: /^#+|#+$/ }
-    }
-  ],
+  h1: {
+    pattern: /(^\s*)#{1}[^#].+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
+  h2: {
+    pattern: /(^\s*)#{2}[^#].+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
+  h3: {
+    pattern: /(^\s*)#{3}[^#].+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
+  h4: {
+    pattern: /(^\s*)#{4}[^#].+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
+  h5: {
+    pattern: /(^\s*)#{5}[^#].+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
+  h6: {
+    pattern: /(^\s*)#{6}.+/m,
+    lookbehind: !0,
+    alias: 'important',
+    inside: { punctuation: /^#+|#+$/ }
+  },
   hr: {
     pattern: /(^\s*)([*-])([\t ]*\2){2,}(?=\s*$)/m,
     lookbehind: !0,
