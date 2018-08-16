@@ -7,6 +7,8 @@ const renderMark = ({ mark, children, attributes }) => {
   switch (mark.type) {
     case 'bold':
       return <strong {...attributes}>{children}</strong>;
+    case 'blockquote':
+      return <blockquote {...attributes}>{children}</blockquote>;
     case 'code':
       return <code {...attributes}>{children}</code>;
     case 'italic':

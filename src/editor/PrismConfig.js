@@ -3,7 +3,7 @@ import Prism from 'prismjs';
 Prism.languages.markdown = Prism.languages.extend('markup', {});
 
 Prism.languages.insertBefore('markdown', 'prolog', {
-  blockquote: { pattern: /^>(?:[\t ]*>)*/m, alias: 'punctuation' },
+  blockquote: { pattern: /^>.*/m, alias: 'punctuation' },
   code: [
     { pattern: /^(?: {4}|\t).+/m, alias: 'keyword' },
     { pattern: /``.+?``|`[^`\n]+`/, alias: 'keyword' }
