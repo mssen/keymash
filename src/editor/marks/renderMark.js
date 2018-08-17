@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Link from './Link';
 import List from './List';
 import Punctuation from './Punctuation';
 
@@ -35,6 +36,8 @@ const renderMark = ({ mark, children, attributes }) => {
       return <List {...attributes}>{children}</List>;
     case 'hr':
       return <hr {...attributes} />;
+    case 'url':
+      return <Link {...attributes}>{children}</Link>;
     default: {
       return children;
     }
