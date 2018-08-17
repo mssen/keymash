@@ -34,8 +34,6 @@ const renderMark = ({ mark, children, attributes }) => {
       return <Punctuation {...attributes}>{children}</Punctuation>;
     case 'list':
       return <List {...attributes}>{children}</List>;
-    case 'hr':
-      return <hr {...attributes} />;
     case 'url':
       return <Link {...attributes}>{children}</Link>;
     default: {

@@ -44,11 +44,6 @@ Prism.languages.insertBefore('markdown', 'prolog', {
     alias: 'important',
     inside: { punctuation: /^#+|#+$/ }
   },
-  hr: {
-    pattern: /(^\s*)([*-])([\t ]*\2){2,}(?=\s*$)/m,
-    lookbehind: !0,
-    alias: 'punctuation'
-  },
   list: {
     pattern: /(^\s*)(?:[*+-]|\d+\.)(?=[\t ].)/m,
     lookbehind: !0,
